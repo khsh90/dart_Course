@@ -3,7 +3,7 @@ Build a command line tool that can play rock, paper and scissors.
 
 When started, the program should show this prompt:
 
-Rock, paper or scissors? (r/p/s)
+Rock, paper or scissors? (r/p/s)----ok
 It should then read the user input and use it as follows:
 
 If the user enters "r", "p", or "s", treat this as a valid move.
