@@ -33,35 +33,3 @@ void main(List<String> argumesnts) {
     print('Total all tags:${totalDuration.toStringAsFixed(1)} Hour');
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -------------------------------------------------
-
-//input = File (list).syncAsline
-//file lines.split(',')
-//totalActivitisBytag=map;
-//for var line in lines;
-//final values=line
-//var durationStr =value[3].replaceAll('"','');
-//duration=double.parse(durationStr);
-
-//tag=value[5].replaceAll('"','');
-
-//if totalActivitisBytag[tag]==null let equal duration
-//for(vlaue in vlaues.entitiy){
-//print key and vlaues.
-//}
