@@ -40,6 +40,6 @@ void main() {
   const cities = <String?>['amman', 'madba', null]; //to add null use <String?>
 
   for (var city in cities) {
-    print(city?.toUpperCase());
+    print(city?.toUpperCase()); //?called conditional access operator
   }
 }
