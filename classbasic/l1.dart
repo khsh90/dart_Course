@@ -1,9 +1,21 @@
 class BankAccount {
-  double balance = 0; //this called property
+  double
+      balance; //this called property //the balance could be changed so it's mutable
+  final String
+      accountHolder; // the account holder shall not be changed so it's immutable and shall be final once get the value no one could change it
 
-  BankAccount(double balance) {
-    this.balance = balance;
-  }
+  // BankAccount(double balance) {
+  //   this.balance = balance;
+  // } //this is the first way of declaring the constructor
+
+  // the seconed way is called list constructor like below
+
+  // BankAccount({required accountHolder, double balance = 0})
+  //     : accountHolder = accountHolder,
+  //       balance = balance;
+
+  // the third way and most offten used by using this as below :
+  BankAccount({required this.accountHolder, this.balance = 0});
 
   double deposite(double amount) {
     balance += amount;
@@ -20,7 +32,7 @@ class BankAccount {
 }
 
 void main() {
-  final bankAccout1 = BankAccount(100);
+  final bankAccout1 = BankAccount(accountHolder: 'accountHolder', balance: 20);
 
   // bankAccout1.deposite(20);
   // bankAccout1.deposite(100);
@@ -35,4 +47,5 @@ void main() {
   // print(deposite2);
 
   print(bankAccout1.balance);
+  print(bankAccout1.accountHolder);
 }

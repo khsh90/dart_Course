@@ -12,7 +12,7 @@ void main() {
 
   print(filter);
   // ---------------------------------------------
-  // another way using for in loop
+  // another way using for in loop complex way
 
   var unknownDomain = [];
   for (var email in emails) {
@@ -22,8 +22,9 @@ void main() {
   }
 
   print(unknownDomain);
+  // -----------------------------------------------------------
 }
-
+// the soimplest way.
 Iterable<String> filterDomains(
         List<String> emails, List<String> knownDomains) =>
     emails
