@@ -34,5 +34,5 @@ void main() {
   // print(deposite1);
   // print(deposite2);
 
-  print(bankAccout1.balance);
+  // print(bankAccout1.balance);
 }
