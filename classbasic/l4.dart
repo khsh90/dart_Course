@@ -10,3 +10,4 @@ class StaticClass {
   static const String sognIn = 'SignIn';
   static String name(String name) => '$welcome $name';
 }
+ 
