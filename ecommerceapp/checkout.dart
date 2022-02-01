@@ -11,17 +11,45 @@ class Product {
   String get firstLetter => '${name.substring(0, 1)}';
 }
 
-class item {
-  const item({required this.product, this.quantity = 1});
+class Item {
+  const Item({required this.product, this.quantity = 1});
 
   final Product product;
   final int quantity;
 
   double get price => quantity * product.price;
+
+  @override
+  String toString() {
+    return '$quantity x ${product.name} :${product.price}JD';
+  }
 }
 
 class Cart {
-  //to do cart item collection;
+  final Map<int, Item> _items = {};
+
+  void addItem(Product product) {
+    final item = _items[product.id];
+
+    if (item == null) {
+      _items[product.id] = Item(product: product, quantity: 1);
+    } else {
+      _items[product.id] = Item(product: product, quantity: item.quantity + 1);
+    }
+  }
+
+  double get total => _items.values
+      .map((item) => item.price)
+      .reduce((value, element) => value + element);
+
+  @override
+  String toString() {
+    if (_items.isEmpty) {
+      return 'No Items in the cart';
+    }
+    final itemList = _items.values.map((item) => item).join('\n');
+    return '$itemList \n  ----------\n Total $total JD';
+  }
 }
 
 final allProducts = [
@@ -32,6 +60,7 @@ final allProducts = [
   Product(id: 5, name: 'kiwi', price: 2.1),
 ];
 void main() {
+  final cart = Cart();
   while (true) {
     stdout.write(
         'What do you want to do ?(v)iew items , (a)dd item , (c)heckout: ');
@@ -39,11 +68,12 @@ void main() {
     final answer = stdin.readLineSync();
 
     if (answer == 'v') {
-      // make todo
+      print(cart);
     } else if (answer == 'a') {
       final product = productsCollections();
       if (product != null) {
-        print(product.displaName);
+        cart.addItem(product);
+        print(cart);
       }
     } else if (answer == 'c') {
       // make todo
