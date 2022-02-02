@@ -5,6 +5,7 @@ import 'lib/item.dart';
 import 'lib/cart.dart';
 
 void main() {
+  final cart = Cart();
   while (true) {
     stdout.write('what do you want ?(a)dd item ,(v)iew cart , (c)heck out \n');
     final userChice = stdin.readLineSync();
@@ -12,13 +13,13 @@ void main() {
     if (userChice == 'a') {
       final products = chooseProduct();
       if (products != null) {
-        print(products.displayProduct);
+        print(cart);
       } else {
         print('invalid selection');
       }
     }
     if (userChice == 'v') {
-      Cart();
+      print(cart);
     }
     if (userChice == 'c') {
       // do task
@@ -47,6 +48,8 @@ Product? chooseProduct() {
     }
   }
 }
+
+
 
 
 
