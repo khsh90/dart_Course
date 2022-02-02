@@ -28,6 +28,8 @@ class Item {
 class Cart {
   final Map<int, Item> _items = {};
 
+  bool get isEmp => _items.isEmpty;
+
   void addItem(Product product) {
     final item = _items[product.id];
 
@@ -76,7 +78,9 @@ void main() {
         print(cart);
       }
     } else if (answer == 'c') {
-      // make todo
+      if (checkout(cart)) {
+        break;
+      }
     } else {
       print('Please select the corrcet answer');
     }
@@ -96,4 +100,34 @@ Product? productsCollections() {
   }
   print('Product not found');
   return null;
+}
+
+bool checkout(Cart cart) {
+  if (cart.isEmp) {
+    print('cart is empty');
+    return false;
+  }
+
+  final total = cart.total;
+  print('Total :$total \n');
+  stdout.write('Payment is cash: ');
+  final userInput = stdin.readLineSync();
+
+  if (userInput == null) {
+    print('invalid amount');
+    return false;
+  }
+
+  final paid = double.tryParse(userInput);
+  if (paid == null) {
+    return false;
+  }
+  if (paid >= total) {
+    final change = (paid - total).toStringAsFixed(2);
+    print('Change:${change}');
+    return true;
+  } else {
+    print('cash not enough');
+    return false;
+  }
 }
