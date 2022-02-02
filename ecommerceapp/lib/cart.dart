@@ -13,7 +13,9 @@ class Cart {
     }
   }
 
-  double get total => _item.values.map((item) => item.price);
+  double get total => _item.values
+      .map((item) => item.price)
+      .reduce((value, element) => value + element);
 
   @override
   String toString() {
@@ -22,6 +24,6 @@ class Cart {
     }
 
     final itemList = _item.values.map((item) => item).join('\n');
-    return '$_item';
+    return '$_item \n ------ $total';
   }
 }

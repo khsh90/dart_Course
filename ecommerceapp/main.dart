@@ -18,7 +18,7 @@ void main() {
       }
     }
     if (userChice == 'v') {
-      // do task
+      Cart();
     }
     if (userChice == 'c') {
       // do task
