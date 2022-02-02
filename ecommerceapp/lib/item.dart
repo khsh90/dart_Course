@@ -1,4 +1,4 @@
-import 'product.dart';
+import './product.dart';
 
 class Item {
   Item({required this.product, this.quantity = 1});

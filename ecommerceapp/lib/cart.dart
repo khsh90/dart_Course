@@ -1,9 +1,10 @@
-import 'package:test/item.dart';
-import 'package:test/product.dart';
+import './product.dart';
+import './item.dart';
 
 class Cart {
   Map<int, Item> _item = {};
 
+  bool get isEmpty => _item.isEmpty;
   void addItem(Product product) {
     final item = _item[product.id];
     if (item == null) {
@@ -24,6 +25,6 @@ class Cart {
     }
 
     final itemList = _item.values.map((item) => item).join('\n');
-    return '$_item \n ------ $total';
+    return '$itemList \nTotal:$total JD ';
   }
 }
